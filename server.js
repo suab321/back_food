@@ -31,7 +31,7 @@ app.use(session({key:'user_sid',
 
 const check=(req,res,next)=>{
     if(req.session.user&&req.cookies.user_sid)
-        res.redirect('http://localhost:3000/index')
+        res.redirect('https://mighty-lowlands-67332.herokuapp.com/index')
     else
         next()
 }
@@ -47,7 +47,7 @@ app.get('/cookie',(req,res)=>{
 })
 //Home
 app.get('/',check,(req,res)=>{
-    res.redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')
+    res.redirect('https://mighty-lowlands-67332.herokuapp.com/Login')
 })
 //Login
 app.get('/get_login',(req,res)=>{res.status(200).redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')})
