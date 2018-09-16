@@ -13,14 +13,14 @@ const cookieparser=require('cookie-parser')
 const app=express()
 app.use(cookieparser())
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Origin", " https://mighty-lowlands-67332.herokuapp.com");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
        next();
  });
 app.use(cors({
     credentials:true,
-    origin: ['http://localhost:3000/index'],
+    origin: ['https://mighty-lowlands-67332.herokuapp.com/index'],
     methods:['GET','POST','PUT','DELETE']
 }))
 app.use(session({key:'user_sid',
@@ -47,10 +47,10 @@ app.get('/cookie',(req,res)=>{
 })
 //Home
 app.get('/',check,(req,res)=>{
-    res.redirect('http://localhost:3000/Login')
+    res.redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')
 })
 //Login
-app.get('/get_login',(req,res)=>{res.status(200).redirect('http://localhost:3000/Login')})
+app.get('/get_login',(req,res)=>{res.status(200).redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')})
 
 app.post('/login',(req,res)=>{
     const email=req.body.email
@@ -60,8 +60,8 @@ app.post('/login',(req,res)=>{
             res.status(200).redirect('/')
         }
         else
-            res.redirect('http://localhost:3000/Login')
-    }).catch(err=>{res.status(400).redirect('http://localhost:3000/Login')})
+            res.redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')
+    }).catch(err=>{res.status(400).redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')})
 })
 
 //User Register//
@@ -71,8 +71,8 @@ app.post('/register',(req,res)=>{
     db.password=bcrypt.hashSync(req.body.password||req.body.cpassword,10)
     db.save().then(user=>{
         req.session.user=user
-        res.status(200).redirect('http://localhost:3000/index')})
-        .catch(err=>{res.status(400).redirect('http://localhost:3000/Register')})
+        res.status(200).redirect(' https://mighty-lowlands-67332.herokuapp.com/index')})
+        .catch(err=>{res.status(400).redirect(' https://mighty-lowlands-67332.herokuapp.com/Register')})
 })
 
 //logout//
