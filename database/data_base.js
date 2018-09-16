@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 
 
 mongoose.Promise=global.Promise
-mongoose.connect('mongodb://suab321:suab@123@ds159782.mlab.com:59782/food_ordering')
+mongoose.connect('mongodb://abhi:Suar@123@ds159782.mlab.com:59782/food_db')
 const user=new mongoose.Schema({email:{type:String,unique:true,required:true},password:{type:String,required:true},
     cart:[{name:String,price:Number,date:Date,category:String,url:String}],
     order_placed:[{orders:{name:String,price:String,Number:String,date:Date,category:String,url:String},date:Date}]})
