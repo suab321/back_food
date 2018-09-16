@@ -60,7 +60,7 @@ app.post('/login',(req,res)=>{
             res.status(200).redirect('/')
         }
         else
-            res.redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')
+            res.redirect('https://mighty-lowlands-67332.herokuapp.com/Login')
     }).catch(err=>{res.status(400).redirect(' https://mighty-lowlands-67332.herokuapp.com/Login')})
 })
 
